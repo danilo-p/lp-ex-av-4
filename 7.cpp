@@ -19,6 +19,33 @@ void foo0()
   std::cout << *p;
 }
 
+void foo1()
+{
+  try
+  {
+    auto_ptr<std ::string> p(new std ::string("Oi !\n"));
+    throw 20;
+  }
+  catch (int e)
+  {
+    std ::cout << " Oops : " << e << "\n";
+  }
+}
+
+void foo2()
+{
+  try
+  {
+    std ::string *p = new std ::string("Oi !\n");
+    throw 20;
+    delete p;
+  }
+  catch (int e)
+  {
+    std ::cout << " Oops : " << e << "\n";
+  }
+}
+
 int main()
 {
   foo0();
